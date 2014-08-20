@@ -1,37 +1,98 @@
 #:kivy 1.0.9
 
-<Demo>:
-    cols: 1
-    
-   
-            
-    
-    BoxLayout:
-        orientation: 'vertical'
-        spacing: 80
-        padding:[100,50,100,0]
-        TextInput:
+<Login>:
+    name: 'login'
+    canvas:
         
-            text: 'Nome do Membro'
-            size_hint_y: 0.04
-            
+        Color:
+            rgba:(1,1,1,1)
+
+        Rectangle:
+            size: root.size
             
 
-        TextInput:            
-            
-            size_hint_y: 0.04
-            text: 'E-Mail do Membro'
-            
-        TextInput:           
-            
-            size_hint_y: 0.04
-            text: 'Telefone'
-        
     BoxLayout:
-        orientation: 'horizontal'
-        padding:[350,0,350,150]
+
+        orientation: 'vertical'
+        padding:[100,50,100,100]
+        spacing: 10
+        Image: 
+            
+            source: 'LogoPJ.png'
+            allow_stretch: True
+            keep_ratio: True
+
+        TextInput:
+            size_hint:[1, None]
+            height: 40
+            text: 'Nome do Membro'
+
+        TextInput:
+            size_hint:[1, None]
+            height: 40
+            text: 'Senha'
+
+        
         Button:
-            size_hint_y: 0.15            
-            text: 'Enviar'
+            size_hint:[0.3, None]
+            pos_hint: {'center_x': 0.35}
+            
+            
+            height: 40
+            text: 'Continuar'
+            font_size: 30
+            on_release: app.root.current = 'apresentacao'
+
+<Apresentacao>:
+    name: 'apresentacao'
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'APRESENTACAO'
+            font_size: 50
+
+        BoxLayout:
+            Button:
+                text: 'goto second screen'
+                font_size: 30
+                on_release: app.root.current = 'cadastro'
+            
+
+<Cadastro>:
+    name: 'cadastro'
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'CADASTRO'
+            font_size: 50
+
+        BoxLayout:
+            Button:
+                text: 'goto second screen'
+                font_size: 30
+                on_release: app.root.current = 'contatos'
+            
+
+<Contatos>:
+    name: 'contatos'
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'CONTATOS'
+            font_size: 50
+
+        BoxLayout:
+            Button:
+                text: 'goto second screen'
+                font_size: 30
+                on_release: app.root.current = 'login'
+
+<Manager>:
+    Login:
+    Apresentacao:
+    Cadastro:
+    Contatos:
+
+    
 
     
